@@ -1,54 +1,52 @@
-const computerChoiceDisplay = document.getElementById('computer-choice')
-const userChoiceDisplay = document.getElementById('user-choice')
-const resultDisplay = document.getElementById('result')
-const possibleChoices = document.querySelectorAll('button')
-let userChoice
-let computerChoice
-let result
+const resultDisplay = document.querySelector("#reslut");
+const choicesDisplay = document.querySelector("#choices");
+const choices = ["ROCK", "PAPER", "SCISSORS"];
 
-possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (e) => {
-  userChoice = e.target.id
-  userChoiceDisplay.innerHTML = userChoice
-  generateComputerChoice()
-  getResult()
-}))
+const handleClick = (e) => {
+  getResults(
+    e.target.innerHTML,
+    choices[Math.floor(Math.random() * choices.length)]
+  );
+};
 
-function generateComputerChoice() {
-  const randomNumber = Math.floor(Math.random() * 3) + 1 // or you can use possibleChoices.length
-  
-  if (randomNumber === 1) {
-    computerChoice = 'ROCK'
-  }
-  if (randomNumber === 2) {
-    computerChoice = 'SCISSORS'
-  }
-  if (randomNumber === 3) {
-    computerChoice = 'PAPER'
-  }
-  computerChoiceDisplay.innerHTML = computerChoice
-}
+choices.forEach(choice => {
+  const button = document.createElement("button");
+  button.innerHTML = choice;
+  button.addEventListener("click", handleClick);
+  choicesDisplay.appendChild(button);
+});
 
-function getResult() {
-  if (computerChoice === userChoice) {
-    result = 'its a draw!'
+const getResults = (userChoice, computerChoice) => {
+  switch (userChoice + computerChoice) {
+    case "SCISSORSPAPER":
+    case "ROCKSCISSORS":
+    case "PAPERROCK":
+      resultDisplay.innerHTML =
+        "You chose" +
+        userChoice +
+        "and the computer chose" +
+        computerChoice +
+        ", so you Win!";
+      break;
+    case "PAPERSCISSORS":
+    case "SCISSORSROCK":
+    case "ROCKPAPER":
+      resultDisplay.innerHTML =
+        "You chose" +
+        userChoice +
+        "and the computer chose" +
+        computerChoice +
+        ", so you Lose!";
+      break;
+    case "PAPERPAPER":
+    case "SCISSORSSCISSORS":
+    case "ROCKROCK":
+      resultDisplay.innerHTML =
+        "You chose" +
+        userChoice +
+        "and the computer chose" +
+        computerChoice +
+        ", its a draw!";
+      break;
   }
-  if (computerChoice === 'ROCK' && userChoice === "PAPER") {
-    result = 'You win!'
-  }
-  if (computerChoice === 'ROCK' && userChoice === "SCISSORS") {
-    result = 'You Lost!'
-  }
-  if (computerChoice === 'PAPER' && userChoice === "SCISSORS") {
-    result = 'you win!'
-  }
-  if (computerChoice === 'PAPER' && userChoice === "ROCK") {
-    result = 'you lose!'
-  }
-  if (computerChoice === 'SCISSORS' && userChoice === "ROCK") {
-    result = 'you win!'
-  }
-  if (computerChoice === 'SCISSORS' && userChoice === "PAPER") {
-    result = 'you lose!'
-  }
-  resultDisplay.innerHTML = result
 }

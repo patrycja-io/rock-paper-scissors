@@ -1,64 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
-<head>
+  <head>
     <meta charset="utf-8">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.13.4/dist/full.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <html data-theme="synthwave">
+    <title>Rock Paper Scissors Tutorial 3</title>
+  </head>
+  <body>
 
-    </html>
-    <title>Rock Paper Scissors Tutorial</title>
-</head>
-
-<body>
-
-    <div class="hero min-h-screen bg-base-200">
-        <div class="hero-content text-center">
-            <div class="max-w-md">
-                <h1 class="text-5xl font-bold">ROCK PAPER SCISSORS!</h1>
-                <p class="py-6">play classic game against computer</p>
-
-                <div class="text-2xl flex justify-between">
-                    <button class="btn btn-primary btn-lg btn-primary gap-2" id="ROCK"> <svg xmlns="http://www.w3.org/2000/svg"
-                            class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>ROCK</button>
-                    <button class="btn btn-warning btn-lg btn-secondary gap-2" id="PAPER"><svg
-                            xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                        </svg>PAPER</button>
-                    <button class="btn  btn-success  btn-lg btn-accent gap-2" id="SCISSORS"> <svg
-                            xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z" />
-                        </svg>SCISSORS</button>
-                </div>
-
-                <div class="text-2xl flex w-full mb-5 mt-5">
-                    <div class="grid h-20 flex-grow card w-96 bg-base-300 rounded-box place-items-center">You :<span
-                            id="user-choice"></span></div>
-                    <div class="divider divider-horizontal">VS</div>
-                    <div class="grid h-20 flex-grow card w-96 bg-base-300 rounded-box place-items-center">Computer:
-                        <span id="computer-choice"></span></div>
-
-                </div>
-               
-                <h2 class="text-6xl py-8  ">Result: <span id="result"></span></h2>
-
-            </div>
-        </div>
-    </div>
-
-
-
-
+    <div id="choices"></div>
+    <h2 id="result"></h2>
 
     <script src="app.js" charset="utf-8"></script>
-</body>
-
+  </body>
 </html>
